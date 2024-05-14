@@ -15,4 +15,4 @@ spec:
       containers:
         - name: testing
           image: busybox:latest
-          command: ["sh", "-c", "nc -z -v -w5 5432 && echo 'Connection successful' || echo 'Connection failed'"]
+          command: ["sh", "-c", "nc -z -v -w5 postgresql-service 5432 && echo 'Connection successful' || echo 'Connection failed'"]
