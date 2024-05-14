@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testing-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testing
+  template:
+    metadata:
+      labels:
+        app: testing
+    spec:
+      containers:
+        - name: testing
+          image: busybox:latest
+          command: ["sh", "-c", "nc -z -v -w5 5432 && echo 'Connection successful' || echo 'Connection failed'"]
